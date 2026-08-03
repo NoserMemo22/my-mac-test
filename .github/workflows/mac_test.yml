@@ -1,0 +1,19 @@
+name: Run macOS Environment
+
+on: 
+  workflow_dispatch: # يتيح لك تشغيله يدوياً بنقرة زر في أي وقت
+
+jobs:
+  run-on-mac:
+    runs-on: macos-latest
+    steps:
+      - name: 1. Check macOS Version
+        run: sw_vers
+
+      - name: 2. Print System Info & Installed Tools
+        run: |
+          echo "مرحباً بك! السيرفر يعمل الآن على بيئة macOS السحابية:"
+          uname -a
+          python3 --version
+          git --version
+          xcodebuild -version
