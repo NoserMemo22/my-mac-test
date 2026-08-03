@@ -1,19 +1,14 @@
-name: Run macOS Environment
+name: Interactive Mac SSH Terminal
 
-on: 
-  workflow_dispatch: # يتيح لك تشغيله يدوياً بنقرة زر في أي وقت
+on:
+  workflow_dispatch:
 
 jobs:
-  run-on-mac:
+  ssh-mac:
     runs-on: macos-latest
     steps:
-      - name: 1. Check macOS Version
-        run: sw_vers
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: 2. Print System Info & Installed Tools
-        run: |
-          echo "مرحباً بك! السيرفر يعمل الآن على بيئة macOS السحابية:"
-          uname -a
-          python3 --version
-          git --version
-          xcodebuild -version
+      - name: Start Interactive SSH Session
+        uses: mxschmitt/action-tmate@v3
