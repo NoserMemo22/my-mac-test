@@ -1,14 +1,14 @@
-name: Interactive Mac SSH Terminal
+name: Interactive Mac Terminal (Upterm)
 
 on:
   workflow_dispatch:
 
 jobs:
-  ssh-mac:
+  upterm-mac:
     runs-on: macos-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Start Interactive SSH Session
-        uses: mxschmitt/action-tmate@v3
+      - name: Start Upterm Session
+        uses: lhotari/action-upterm@v1
